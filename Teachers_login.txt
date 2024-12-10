@@ -1,0 +1,1 @@
+Teacher{login='asd', password='asd', type=SeniorLector}
