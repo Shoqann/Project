@@ -3,9 +3,9 @@ package ProjectB;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Vector;
+import java.io.Serializable;
 
-public class Admin {
-	
+public class Admin{
 	
 static Scanner sc = new Scanner(System.in);
 	
@@ -35,11 +35,11 @@ static Scanner sc = new Scanner(System.in);
 			
 			System.out.println("Вы выбрали Русский");
 			System.out.println("Кем вы хотите быть?");
+			System.out.println("---------------------");
 			System.out.println("1: Работник");
 			System.out.println("2: Пользователь");
 			System.out.println("3: Студент");
 			System.out.println("---------------------");
-			System.out.println("4:Все админы");
 			int WhoAreYou = sc.nextInt();
 			if(WhoAreYou == 1) {
 				System.out.println("На какую должность вы пришли?");
@@ -50,22 +50,20 @@ static Scanner sc = new Scanner(System.in);
 				System.out.println("5:Учитель");
 				int EmployeeMoments = sc.nextInt();
 				if(EmployeeMoments == 1) {
-					System.out.println("Технические обработки");
+					createDean();
 				}
 				else if(EmployeeMoments == 2) {
-					
-					
-//					createAdmin();
+					createAdmin();
 				}
 				else if(EmployeeMoments == 3) {
-					
+					createManager();
 				}
 				else if(EmployeeMoments == 4) {
 					
 				}
 				else if(EmployeeMoments == 5) {
 					System.out.println("Какой учитель?");
-					System.out.println("1. Лек  тор");
+					System.out.println("1. Лектор");
 					System.out.println("2. Сеньор-Лектор");
 					System.out.println("3. Профессор");
 					
@@ -198,36 +196,82 @@ static Scanner sc = new Scanner(System.in);
 		 System.out.println("У вас успешно создался учитель");
 	}
 	
-//	public static void createAdmin(){
-//		sc.nextLine();
-//		System.out.println("Введите Логин:");
-//		String Adminlogin = sc.nextLine();
-//		System.out.println("Введите Пароль:");
-//		String AdminPassword = sc.nextLine();
-//		Reg newTeacher = new Reg(Teacherlogin,TeacherPassword);
-//		if(DBcontext.teachers == null) {
-//			DBcontext.teachers = new Vector<>();
-//		}
-//		DBcontext.teachers.add(newTeacher);
-//		//DBcontext.SaveTeachers();
-//		
-//		
-//		 DBcontext.saveLogin(DBcontext.teachers);
-//
-//		 System.out.println("У вас успешно создался Админы");
-//	}
 	
 	
+	public static void createManager() {
+	    sc.nextLine();
+	    System.out.println("Введите Логин:");
+	    String managerLogin = sc.nextLine();
+	    System.out.println("Введите Пароль:");
+	    String managerPassword = sc.nextLine();
+
+	   
+	    Manager newManager = new Manager(managerLogin, managerPassword);
+
+	    
+	    if (DBcontext.managers == null) {
+	        DBcontext.managers = new Vector<>();
+	    }
+
+	    
+	    DBcontext.managers.add(newManager);
+
+	    
+	    DBcontext.saveManager(DBcontext.managers);
+
+	    System.out.println("Менеджер успешно создан!");
+	}
+
+	public static void createAdmin() {
+	    sc.nextLine();
+	    System.out.println("Введите Логин:");
+	    String adminLogin = sc.nextLine();
+	    System.out.println("Введите Пароль:");
+	    String adminPassword = sc.nextLine();
+
+	    
+	    AdminMoments newAdmin = new AdminMoments(adminLogin, adminPassword);
+
 	
-//    public Admin(String login, String password, String fullName) {
-////        super(login, password, fullName);
-//    }
-//
-//    public void createAccount(User user) {
-//        System.out.println("Account created for: " + user.getFullName());
-//    }
-//
-//    public void deleteAccount(User user) {
-//        System.out.println("Account deleted for: " + user.getFullName());
-//    }
+	    
+	    if (DBcontext.admins == null) {
+	        DBcontext.admins = new Vector<>(); 
+	    }
+
+	   
+	    DBcontext.admins.add(newAdmin);
+
+	    
+	    DBcontext.saveAdmin(DBcontext.admins);
+
+	    System.out.println("Админ успешно создан!");
+	}
+	
+
+	public static void createDean() {
+		 sc.nextLine();
+		    System.out.println("Введите Логин:");
+		    String deanLogin = sc.nextLine();
+		    System.out.println("Введите Пароль:");
+		    String deanPassword = sc.nextLine();
+
+		    
+		    Dean newDean= new Dean(deanLogin,deanPassword);
+
+		
+		    
+		    if (DBcontext.deans == null) {
+		        DBcontext.deans = new Vector<>(); 
+		    }
+
+		   
+		    DBcontext.deans.add(newDean);
+
+		    
+		    DBcontext.saveDean(DBcontext.deans);
+
+		    System.out.println("Декан успешно создан!");
+	}
+	
+
 }

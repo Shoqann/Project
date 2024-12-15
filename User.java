@@ -1,6 +1,6 @@
 package ProjectB;
 import java.util.*;
-public class User {
+public abstract class User {
     private String login;
     private String password;
     private String fullName;
@@ -41,5 +41,11 @@ public class User {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+    
+
+    @Override
+    public String toString() {
+        return login + ":" + password;
     }
 }

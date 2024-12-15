@@ -8,20 +8,7 @@ public class Reg implements Serializable{
         this.password=password;
         
     }
-	 public static Teacher fromString(String line) {
-	        // Предположим, строка имеет формат "Имя,Предмет,Возраст"
-	        String[] parts = line.split(",");
-	        String login = parts[0];
-	        String password = parts[1];
-	  
-
-	        return new Teacher(login,password,TeacherType.Lector);
-	    }
-	    @Override
-	    public String toString() {
-	        return 
-	                login + ":" + password;
-	               
-	    }
+	
+	    
 
 }

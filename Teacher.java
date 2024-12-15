@@ -2,7 +2,7 @@ package ProjectB;
 import java.io.*;
 import java.util.Vector;
 
-public class Teacher extends User implements Serializable{
+public class Teacher implements Serializable{
     private Vector<String> courses = new Vector<>();
     private String login;
     private String password;
@@ -10,7 +10,8 @@ public class Teacher extends User implements Serializable{
 
 
     public Teacher(String login, String password, TeacherType type) {
-        super(login,password);
+       this.login=login;
+       this.password=password;
         this.type = type;
     }
 
@@ -56,9 +57,7 @@ public class Teacher extends User implements Serializable{
 	        */
     public static Teacher fromString(String line) {
         String[] parts = line.split(":");
-       // if (parts.length != 3) {
-         //   throw new IllegalArgumentException("Некорректный формат строки: " + line);
-        //1
+ 
         
         String login = parts[0];
         String password = parts[1];

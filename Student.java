@@ -4,6 +4,8 @@ import java.util.Map;
 
 public class Student extends User {
     private String id;
+    private String login;
+    private String password;
     private int yearOfStudy;
     private Map<String, Float> marks = new HashMap<>();
     private Map<String, Integer> retakes = new HashMap<>();
@@ -18,10 +20,7 @@ public class Student extends User {
         this.yearOfStudy = yearOfStudy;
     }
 
-    public String viewInfo() {
-        return "Student Info: " + getFullName();
-    }
-
+ 
     public String viewCourses() {
         return "Courses: List displayed.";
     }
@@ -81,6 +80,19 @@ public class Student extends User {
 
     public void setCurrentCredits(int currentCredits) {
         this.currentCredits = currentCredits;
+    }
+    public static AdminMoments fromString(String line) {
+    	String[] parts = line.split(":");
+    	String login = parts[0];
+        String password = parts[1];
+         
+   
+        return new AdminMoments(login, password);
+    }
+
+    @Override
+    public String toString() {
+        return login + ":" + password;
     }
 
     public boolean isRegistrations() {

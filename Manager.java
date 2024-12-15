@@ -1,10 +1,48 @@
 package ProjectB;
 import java.util.List;
+import java.io.*;
 import java.util.Scanner;
 import java.util.Vector;
 
-public class Manager {
+public class Manager implements Serializable {
+	  private String login;
+	    private String password;
 
+	    public Manager(String login, String password) {
+	        this.login = login;
+	        this.password = password;
+	    }
+
+	    // Getters and setters
+	    public String getLogin() {
+	        return login;
+	    }
+
+	    public void setLogin(String login) {
+	        this.login = login;
+	    }
+
+	    public String getPassword() {
+	        return password;
+	    }
+
+	    public void setPassword(String password) {
+	        this.password = password;
+	    }
+
+	    // Метод для чтения объекта Manager из строки
+	    public static Manager fromString(String line) {
+	        String[] parts = line.split(":");
+	        if (parts.length != 2) {
+	            throw new IllegalArgumentException("Некорректный формат строки: " + line);
+	        }
+	        return new Manager(parts[0], parts[1]);
+	    }
+
+	    @Override
+	    public String toString() {
+	        return login + ":" + password;
+	    }
 	
 //    private List<String> requests;
 //

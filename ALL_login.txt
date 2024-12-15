@@ -1,3 +1,12 @@
 фыв:фыв:Proffesor
 asd:asd:Proffesor
-yii:rrty:SeniorLector
+asd:asd:SeniorLector
+фыв:фыв:Lector
+asd:asd:Proffesor
+фыв:фыв:Proffesor
+sddfljosdfsdfjkhgaahdg:kasjdgfjasdgfkf:Proffesor
+asd:asds:s:Proffesor
+sdlfgiosdfgiauyetqwteruqwerARSEN:ARSEEENsfsfdhsdfgAR:ARDeantest:test:Deantest1:test1:Dean
+test2:test2Dean
+asd:asd:Dean
+efgh:fdgh:Admin
